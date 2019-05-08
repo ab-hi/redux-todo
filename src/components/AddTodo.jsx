@@ -15,11 +15,14 @@ class AddTodo extends React.Component{
 	componentDidUpdate(prevProps){
 		const { value } = this.state;
 		if (this.props.todos.length > prevProps.todos.length){
-			if(this.props.todos[this.props.todos.length -1].task === value) {
-				this.setState({
+			// if(this.props.todos[this.props.todos.length -1].task === value) {
+			// 	this.setState({
+			// 		value: ''
+			// 	})
+			// }
+			this.setState({
 					value: ''
 				})
-			}
 		}
 	}
 

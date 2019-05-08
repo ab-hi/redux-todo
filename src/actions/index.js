@@ -12,4 +12,11 @@ const DELETE_TODO = (id) =>{
 	})
 }
 
-export {ADD_TODO, DELETE_TODO}
+const COMPLETE_TODO = (id) =>{
+	return({
+		type : 'COMPLETE_TODO',
+		payload: id
+	})
+}
+
+export {ADD_TODO, DELETE_TODO, COMPLETE_TODO}

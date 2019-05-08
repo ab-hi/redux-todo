@@ -5,9 +5,9 @@ import {Provider} from 'react-redux'
 import {createStore,  compose, applyMiddleware} from 'redux'
 import reducers from './reducers'
 
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(reducers, composeEnhancers())
+
 function App() {
   return (
     <Provider store={store}>
