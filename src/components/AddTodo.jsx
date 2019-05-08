@@ -12,6 +12,17 @@ class AddTodo extends React.Component{
 		}
 	}
 
+	componentDidUpdate(prevProps){
+		const { value } = this.state;
+		if (this.props.todos.length > prevProps.todos.length){
+			if(this.props.todos[this.props.todos.length -1].task === value) {
+				this.setState({
+					value: ''
+				})
+			}
+		}
+	}
+
 	handleChange = (e) => {
 		this.setState({value: e.target.value})
 	}
@@ -26,8 +37,12 @@ class AddTodo extends React.Component{
 	}
 }
 
+function mapStateToProps({ todos }){
+	return { todos };
+}
+
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({ADD_TODO}, dispatch)
 }
 
-export default connect(()=>({}), mapDispatchToProps)(AddTodo)
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)
